@@ -38,7 +38,7 @@ class Beer
     SQL
   )
 
-  # create task
+  # create beer
   DB.prepare("create_beer",
     <<-SQL
       INSERT INTO beers (brewery_name, location, beer_name, beer_style, ranking, comments, tried, liked, img)
@@ -47,7 +47,7 @@ class Beer
     SQL
   )
 
-  # delete task
+  # delete beer
   DB.prepare("delete_beer",
     <<-SQL
       DELETE FROM beers
@@ -56,7 +56,7 @@ class Beer
     SQL
   )
 
-  # update task
+  # update beer
   DB.prepare("update_beer",
     <<-SQL
       UPDATE beers
@@ -121,7 +121,7 @@ class Beer
       opts["liked"] = false
     end
      # create the beer
-    results = DB.exec_prepared("create_beer", opts["brewery_name"], opts["location"], opts["beer_name"], opts["beer_style"], opts["ranking"], opts["comments"], opts["tried"], opts["liked"], opts["img"])
+    results = DB.exec_prepared("create_beer", [opts["brewery_name"], opts["location"], opts["beer_name"], opts["beer_style"], opts["ranking"], opts["comments"], opts["tried"], opts["liked"], opts["img"]])
     # turn tried value into boolean
     if results.first["tried"] === 'f'
       tried = false

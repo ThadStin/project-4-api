@@ -767,3 +767,27 @@ ArgumentError (wrong number of arguments (given 10, expected 1..4)):
 app/models/beer.rb:124:in `async_exec_prepared'
 app/models/beer.rb:124:in `create'
 app/controllers/beers_controller.rb:14:in `create'
+Started POST "/beers/" for ::1 at 2019-06-10 11:44:02 -0500
+Processing by BeersController#create as */*
+  Parameters: {"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}], "beer"=>{"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}]}}
+Completed 200 OK in 27ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/beers/" for ::1 at 2019-06-10 11:48:32 -0500
+Processing by BeersController#index as */*
+  Parameters: {"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}], "beer"=>{"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}]}}
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/beers/" for ::1 at 2019-06-10 11:48:46 -0500
+Processing by BeersController#create as */*
+  Parameters: {"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil, "beer"=>{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}}
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/beers/" for ::1 at 2019-06-10 11:48:57 -0500
+Processing by BeersController#index as */*
+  Parameters: {"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil, "beer"=>{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}}
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
