@@ -459,3 +459,335 @@ Processing by BeersController#index as HTML
 Completed 200 OK in 46ms (Views: 0.5ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/beers" for ::1 at 2019-06-07 17:39:12 -0500
+Processing by BeersController#index as */*
+  Parameters: {"completed"=>true, "beer"=>{"completed"=>true}}
+Completed 200 OK in 12ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/beers/1" for ::1 at 2019-06-07 17:39:32 -0500
+Processing by BeersController#show as */*
+  Parameters: {"_json"=>[{"id"=>1, "brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"macro crap", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}], "id"=>"1", "beer"=>{"_json"=>[{"id"=>1, "brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"macro crap", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}]}}
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/beers/1" for ::1 at 2019-06-07 17:39:54 -0500
+Processing by BeersController#delete as */*
+  Parameters: {"_json"=>[{"id"=>1, "brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"macro crap", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}], "id"=>"1", "beer"=>{"_json"=>[{"id"=>1, "brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"macro crap", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}]}}
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/beers/1" for ::1 at 2019-06-07 17:40:03 -0500
+  
+ActionController::RoutingError (No route matches [POST] "/beers/1"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/beers/" for ::1 at 2019-06-07 17:40:12 -0500
+Processing by BeersController#create as */*
+  Parameters: {"_json"=>[{"id"=>1, "brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"macro crap", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}], "beer"=>{"_json"=>[{"id"=>1, "brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"macro crap", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}]}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 10, expected 1..4)):
+  
+app/models/beer.rb:119:in `async_exec_prepared'
+app/models/beer.rb:119:in `create'
+app/controllers/beers_controller.rb:14:in `create'
+Started POST "/beers/" for ::1 at 2019-06-07 17:40:54 -0500
+Processing by BeersController#create as */*
+  Parameters: {"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"macro crap", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}], "beer"=>{"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"macro crap", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}]}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 10, expected 1..4)):
+  
+app/models/beer.rb:119:in `async_exec_prepared'
+app/models/beer.rb:119:in `create'
+app/controllers/beers_controller.rb:14:in `create'
+Started GET "/beers/" for ::1 at 2019-06-07 17:44:18 -0500
+Processing by BeersController#index as */*
+  Parameters: {"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"macro crap", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}], "beer"=>{"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"macro crap", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}]}}
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/beers/2" for ::1 at 2019-06-07 17:44:47 -0500
+Processing by BeersController#update as */*
+  Parameters: {"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}], "id"=>"2", "beer"=>{"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}]}}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+PG::ProtocolViolation (ERROR:  bind message supplies 10 parameters, but prepared statement "update_beer" requires 9
+):
+  
+app/models/beer.rb:163:in `async_exec_prepared'
+app/models/beer.rb:163:in `update'
+app/controllers/beers_controller.rb:24:in `update'
+Started GET "/" for ::1 at 2019-06-08 17:40:42 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/jonphillips/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/jonphillips/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (9.5ms)
+Completed 200 OK in 60ms (Views: 26.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/beers/2" for ::1 at 2019-06-08 17:46:23 -0500
+Processing by BeersController#show as */*
+  Parameters: {"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}], "id"=>"2", "beer"=>{"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}]}}
+Completed 200 OK in 25ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/beers/" for ::1 at 2019-06-08 17:46:30 -0500
+Processing by BeersController#index as */*
+  Parameters: {"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}], "beer"=>{"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}]}}
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/beers/" for ::1 at 2019-06-08 17:46:45 -0500
+  
+ActionController::RoutingError (No route matches [DELETE] "/beers"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started DELETE "/beers/2" for ::1 at 2019-06-08 17:46:50 -0500
+Processing by BeersController#delete as */*
+  Parameters: {"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}], "id"=>"2", "beer"=>{"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}]}}
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/beers/" for ::1 at 2019-06-08 17:46:57 -0500
+Processing by BeersController#create as */*
+  Parameters: {"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}], "beer"=>{"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}]}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 10, expected 1..4)):
+  
+app/models/beer.rb:119:in `async_exec_prepared'
+app/models/beer.rb:119:in `create'
+app/controllers/beers_controller.rb:14:in `create'
+Started PUT "/beers/" for ::1 at 2019-06-08 17:47:02 -0500
+  
+ActionController::RoutingError (No route matches [PUT] "/beers"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/beers/" for ::1 at 2019-06-08 17:47:09 -0500
+Processing by BeersController#index as */*
+  Parameters: {"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}], "beer"=>{"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}]}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/beers/" for ::1 at 2019-06-08 17:47:44 -0500
+Processing by BeersController#create as */*
+  Parameters: {"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}], "beer"=>{"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}]}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 10, expected 1..4)):
+  
+app/models/beer.rb:119:in `async_exec_prepared'
+app/models/beer.rb:119:in `create'
+app/controllers/beers_controller.rb:14:in `create'
+Started GET "/beers/" for ::1 at 2019-06-08 17:47:58 -0500
+Processing by BeersController#index as */*
+  Parameters: {"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}], "beer"=>{"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}]}}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/beers" for ::1 at 2019-06-10 10:30:56 -0500
+Processing by BeersController#index as HTML
+Completed 200 OK in 13ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/beers" for ::1 at 2019-06-10 11:25:18 -0500
+Processing by BeersController#index as HTML
+Completed 200 OK in 21ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/beers/" for ::1 at 2019-06-10 11:26:02 -0500
+Processing by BeersController#index as */*
+  Parameters: {"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}], "beer"=>{"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}]}}
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/beers/1" for ::1 at 2019-06-10 11:26:22 -0500
+Processing by BeersController#show as */*
+  Parameters: {"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}], "id"=>"1", "beer"=>{"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}]}}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/models/beer.rb:99:in `find'
+app/controllers/beers_controller.rb:9:in `show'
+Started GET "/beers/1" for ::1 at 2019-06-10 11:28:22 -0500
+Processing by BeersController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/models/beer.rb:99:in `find'
+app/controllers/beers_controller.rb:9:in `show'
+Started GET "/beers/1" for ::1 at 2019-06-10 11:36:46 -0500
+Processing by BeersController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/models/beer.rb:99:in `find'
+app/controllers/beers_controller.rb:9:in `show'
+Started GET "/beers/1" for ::1 at 2019-06-10 11:36:49 -0500
+Processing by BeersController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/models/beer.rb:99:in `find'
+app/controllers/beers_controller.rb:9:in `show'
+Started GET "/beers/1" for ::1 at 2019-06-10 11:37:34 -0500
+Processing by BeersController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/models/beer.rb:99:in `find'
+app/controllers/beers_controller.rb:9:in `show'
+Started GET "/beers/1" for ::1 at 2019-06-10 11:37:41 -0500
+Processing by BeersController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/models/beer.rb:99:in `find'
+app/controllers/beers_controller.rb:9:in `show'
+Started GET "/beers/" for ::1 at 2019-06-10 11:39:08 -0500
+Processing by BeersController#index as HTML
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/beers/3" for ::1 at 2019-06-10 11:39:14 -0500
+Processing by BeersController#show as HTML
+  Parameters: {"id"=>"3"}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/beers/3" for ::1 at 2019-06-10 11:39:32 -0500
+Processing by BeersController#show as */*
+  Parameters: {"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}], "id"=>"3", "beer"=>{"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}]}}
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/beers/" for ::1 at 2019-06-10 11:39:55 -0500
+Processing by BeersController#create as */*
+  Parameters: {"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}], "beer"=>{"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}]}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 10, expected 1..4)):
+  
+app/models/beer.rb:124:in `async_exec_prepared'
+app/models/beer.rb:124:in `create'
+app/controllers/beers_controller.rb:14:in `create'
+Started POST "/beers/" for ::1 at 2019-06-10 11:44:02 -0500
+Processing by BeersController#create as */*
+  Parameters: {"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}], "beer"=>{"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}]}}
+Completed 200 OK in 27ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/beers/" for ::1 at 2019-06-10 11:48:32 -0500
+Processing by BeersController#index as */*
+  Parameters: {"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}], "beer"=>{"_json"=>[{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}]}}
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/beers/" for ::1 at 2019-06-10 11:48:46 -0500
+Processing by BeersController#create as */*
+  Parameters: {"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil, "beer"=>{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}}
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/beers/" for ::1 at 2019-06-10 11:48:57 -0500
+Processing by BeersController#index as */*
+  Parameters: {"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil, "beer"=>{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}}
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+

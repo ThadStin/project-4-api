@@ -3,10 +3,15 @@ class Beer
   #                      SET UP
   # ==================================================
   # add attribute readers for instance accesss
-  attr_reader :id, :task, :completed
+  attr_reader :id, :beer, :tried, :liked
 
   # connect to postgres
-  DB = PG.connect({:host => "localhost", :port => 5432, :dbname => 'project-4-api_development'})
+  if(ENV['https://project-4-api.herokuapp.com/beers/'])
+    uri = URI.parse(ENV['https://project-4-api.herokuapp.com/beers/'])
+    db = PG.connect(uri.hostname, uri.port, nil, nil, uri.path[1..-1], uri.user, uri.password)
+  else
+    DB = PG.connect({:host => "localhost", :port => 5432, :dbname => 'project-4-api_development'})
+  end
 
   # initialize options hash
   def initialize(opts = {}, id = nil)
@@ -33,7 +38,7 @@ class Beer
     SQL
   )
 
-  # create task
+  # create beer
   DB.prepare("create_beer",
     <<-SQL
       INSERT INTO beers (brewery_name, location, beer_name, beer_style, ranking, comments, tried, liked, img)
@@ -42,7 +47,7 @@ class Beer
     SQL
   )
 
-  # delete task
+  # delete beer
   DB.prepare("delete_beer",
     <<-SQL
       DELETE FROM beers
@@ -51,7 +56,7 @@ class Beer
     SQL
   )
 
-  # update task
+  # update beer
   DB.prepare("update_beer",
     <<-SQL
       UPDATE beers
@@ -84,7 +89,7 @@ class Beer
     end
   end
 
-  # get one task by id
+  # get one beer by id
   def self.find(id)
     # find the result
     result = DB.exec_prepared("find_beer", [id]).first
@@ -102,8 +107,8 @@ class Beer
       result["liked"] = true
     end
     p result
-    # create and return the task
-    task = Beer.new(result, result["id"])
+    # create and return the beer
+    beer = Beer.new(result, result["id"])
   end
 
   # create one
@@ -115,8 +120,8 @@ class Beer
     if opts["liked"] === nil
       opts["liked"] = false
     end
-     # create the task
-    results = DB.exec_prepared("create_beer", opts["brewery_name"], opts["location"], opts["beer_name"], opts["beer_style"], opts["ranking"], opts["comments"], opts["tried"], opts["liked"], opts["img"])
+     # create the beer
+    results = DB.exec_prepared("create_beer", [opts["brewery_name"], opts["location"], opts["beer_name"], opts["beer_style"], opts["ranking"], opts["comments"], opts["tried"], opts["liked"], opts["img"]])
     # turn tried value into boolean
     if results.first["tried"] === 'f'
       tried = false
@@ -128,7 +133,7 @@ class Beer
     else
       liked = true
     end
-    # return the task
+    # return the beer
     beer = Beer.new(
       {
         "brewery_name" => results.first["brewery_name"],
