@@ -791,8 +791,15 @@ Processing by BeersController#index as */*
 Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.0ms)
 
 
+<<<<<<< HEAD
 Started GET "/beers/" for ::1 at 2019-06-10 12:04:52 -0500
 Processing by BeersController#index as HTML
 Completed 200 OK in 13ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+=======
+Started DELETE "/beers/9" for ::1 at 2019-06-10 11:50:37 -0500
+Processing by BeersController#delete as */*
+  Parameters: {"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil, "id"=>"9", "beer"=>{"brewery_name"=>"Miller", "location"=>"Milwaukee, WI", "beer_name"=>"High Life", "beer_style"=>"Champange Of Beers", "ranking"=>"10", "tried"=>true, "liked"=>true, "img"=>nil}}
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+>>>>>>> 38c5cd938bee270a5e7b1704044668f839304574
 
 
