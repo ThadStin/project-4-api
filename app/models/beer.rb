@@ -166,7 +166,7 @@ class Beer
   def self.update(id, opts)
     # update the beer
     results = DB.exec_prepared("update_beer", [id, opts["brewery_name"], opts["location"], opts["beer_name"], opts["beer_style"], opts["ranking"], opts["comments"], opts["tried"], opts["liked"], opts["img"]])
-    # if results.first exists, it was successfully updated so return the updated task
+    # if results.first exists, it was successfully updated so return the updated beer
     if results.first
       if results.first["tried"] === 'f'
         tried = false
