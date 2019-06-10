@@ -6,10 +6,10 @@ class Beer
   attr_reader :id, :beer, :tried, :liked
 
   # connect to postgres
-  if(ENV['https://project-4-api.herokuapp.com/beers/'])
-    uri = URI.parse(ENV['https://project-4-api.herokuapp.com/beers/'])
-    db = PG.connect(uri.hostname, uri.port, nil, nil, uri.path[1..-1], uri.user, uri.password)
-  else
+  if(ENV['DATABASE_URL'])
+       uri = URI.parse(ENV['DATABASE_URL'])
+       DB = PG.connect(uri.hostname, uri.port, nil, nil, uri.path[1..-1], uri.user, uri.password)
+   else
     DB = PG.connect({:host => "localhost", :port => 5432, :dbname => 'project-4-api_development'})
   end
 
@@ -165,7 +165,7 @@ class Beer
   # update one
   def self.update(id, opts)
     # update the beer
-    results = DB.exec_prepared("update_beer", [id, opts["brewery_name"], opts["location"], opts["beer_name"], opts["beer_style"], opts["ranking"], opts["comments"], opts["tried"], opts["liked"], opts["img"]])
+    results = DB.exec_prepared("update_beer", [opts["brewery_name"], opts["location"], opts["beer_name"], opts["beer_style"], opts["ranking"], opts["comments"], opts["tried"], opts["liked"], opts["img"]])
     # if results.first exists, it was successfully updated so return the updated beer
     if results.first
       if results.first["tried"] === 'f'
