@@ -60,7 +60,7 @@ class Beer
   DB.prepare("update_beer",
     <<-SQL
       UPDATE beers
-      SET brewery_name = $2, location = $3, beer_name = $4, beer_style = $5, ranking = $6, comments = $7, liked = $8, img = $9
+      SET brewery_name = $2, location = $3, beer_name = $4, beer_style = $5, ranking = $6, comments = $7, tried = $8, liked = $9, img = $10
       WHERE id = $1
       RETURNING id, brewery_name, location, beer_name, beer_style, ranking, comments, tried, liked, img;
     SQL
@@ -165,7 +165,7 @@ class Beer
   # update one
   def self.update(id, opts)
     # update the beer
-    results = DB.exec_prepared("update_beer", [opts["brewery_name"], opts["location"], opts["beer_name"], opts["beer_style"], opts["ranking"], opts["comments"], opts["tried"], opts["liked"], opts["img"]])
+    results = DB.exec_prepared("update_beer", [id, opts["brewery_name"], opts["location"], opts["beer_name"], opts["beer_style"], opts["ranking"], opts["comments"], opts["tried"], opts["liked"], opts["img"]])
     # if results.first exists, it was successfully updated so return the updated beer
     if results.first
       if results.first["tried"] === 'f'
