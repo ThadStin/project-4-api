@@ -24,6 +24,7 @@ class Beer
     @tried = opts["tried"]
     @liked = opts["liked"]
     @img = opts["img"]
+    @abv = opts["abv"]
   end
 
   # ==================================================
@@ -42,8 +43,8 @@ class Beer
   DB.prepare("create_beer",
     <<-SQL
       INSERT INTO beers (brewery_name, location, beer_name, beer_style, ranking, comments, tried, liked, img)
-      VALUES ( $1, $2, $3, $4, $5, $6, $7, $8, $9 )
-      RETURNING id, brewery_name, location, beer_name, beer_style, ranking, comments, tried, liked, img;
+      VALUES ( $1, $2, $3, $4, $5, $6, $7, $8, $9, $10 )
+      RETURNING id, brewery_name, location, beer_name, beer_style, ranking, comments, tried, liked, img, abv;
     SQL
   )
 
@@ -60,9 +61,9 @@ class Beer
   DB.prepare("update_beer",
     <<-SQL
       UPDATE beers
-      SET brewery_name = $2, location = $3, beer_name = $4, beer_style = $5, ranking = $6, comments = $7, tried = $8, liked = $9, img = $10
+      SET brewery_name = $2, location = $3, beer_name = $4, beer_style = $5, ranking = $6, comments = $7, tried = $8, liked = $9, img = $10, abv = $11
       WHERE id = $1
-      RETURNING id, brewery_name, location, beer_name, beer_style, ranking, comments, tried, liked, img;
+      RETURNING id, brewery_name, location, beer_name, beer_style, ranking, comments, tried, liked, img, abv;
     SQL
   )
 
@@ -121,7 +122,7 @@ class Beer
       opts["liked"] = false
     end
      # create the beer
-    results = DB.exec_prepared("create_beer", [opts["brewery_name"], opts["location"], opts["beer_name"], opts["beer_style"], opts["ranking"], opts["comments"], opts["tried"], opts["liked"], opts["img"]])
+    results = DB.exec_prepared("create_beer", [opts["brewery_name"], opts["location"], opts["beer_name"], opts["beer_style"], opts["ranking"], opts["comments"], opts["tried"], opts["liked"], opts["img"], opts["abv"]])
     # turn tried value into boolean
     if results.first["tried"] === 'f'
       tried = false
@@ -144,7 +145,8 @@ class Beer
         "comments" => results.first["comments"],
         "tried" => tried,
         "liked" => liked,
-        "img" => results.first["img"]
+        "img" => results.first["img"],
+        "abv" => results.first["abv"]
       },
       results.first["id"]
     )
@@ -165,7 +167,7 @@ class Beer
   # update one
   def self.update(id, opts)
     # update the beer
-    results = DB.exec_prepared("update_beer", [id, opts["brewery_name"], opts["location"], opts["beer_name"], opts["beer_style"], opts["ranking"], opts["comments"], opts["tried"], opts["liked"], opts["img"]])
+    results = DB.exec_prepared("update_beer", [id, opts["brewery_name"], opts["location"], opts["beer_name"], opts["beer_style"], opts["ranking"], opts["comments"], opts["tried"], opts["liked"], opts["img"], opts["abv"]])
     # if results.first exists, it was successfully updated so return the updated beer
     if results.first
       if results.first["tried"] === 'f'
@@ -189,7 +191,8 @@ class Beer
           "comments" => results.first["comments"],
           "tried" => tried,
           "liked" => liked,
-          "img" => results.first["img"]
+          "img" => results.first["img"],
+          "abv" => results.first["abv"]
         },
         results.first["id"]
       )
