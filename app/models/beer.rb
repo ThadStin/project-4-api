@@ -42,8 +42,8 @@ class Beer
   # create beer
   DB.prepare("create_beer",
     <<-SQL
-      INSERT INTO beers (brewery_name, location, beer_name, beer_style, ranking, comments, tried, liked, img)
-      VALUES ( $1, $2, $3, $4, $5, $6, $7, $8, $9, $10 )
+      INSERT INTO beers (brewery_name, location, beer_name, beer_style, ranking, comments, tried, liked, img, abv)
+      VALUES ( $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11 )
       RETURNING id, brewery_name, location, beer_name, beer_style, ranking, comments, tried, liked, img, abv;
     SQL
   )
